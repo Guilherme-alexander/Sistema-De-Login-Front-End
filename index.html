@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<title>Cadastro</title>
+	<meta charset="UTF-8">
+	<link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+	<div class="hero">
+		<div class="form-box">
+			<div class="button-box">
+				<div id="btn"></div><!-- btn -->
+				<button type="button" class="toggle-btn btn1 color" onclick="login()"> log in </button>
+				<button type="button" class="toggle-btn btn2" onclick="register()"> Register </button>
+			</div><!-- button-box -->
+			<div class="social-icons">
+				<a href="https://facebook.com"><img src="imagens/facebook.png"></a>
+				<a href="https://www.instagram.com/"><img src="imagens/instagram.png"></a>
+				<a href="https://www.google.com"><img src="imagens/Google.png"></a>
+			</div><!-- social-icons -->
+
+			<form id="login" class="input-group">
+				<input type="text" class="input-field" placeholder="User Name" required="text">
+				<input type="Password" class="input-field" placeholder="Password"required="password">
+				<input type="checkbox" class="chech-box"><span>Remember Password</span>
+				<button type="submit" class="submit-btn">Log in</button>
+			</form><!-- input-group -->
+
+			<form id="register" class="input-group">
+				<input type="text" class="input-field" placeholder="User id" required="text">
+				<input type="email" class="input-field" placeholder="E-mail" required="email">
+				<input type="Password" class="input-field" placeholder="Password" required="Password" >
+				<input type="checkbox" class="chech-box"><span>I agree to the terms & conditions</span>
+				<button type="submit" class="submit-btn">Register</button>
+			</form><!-- input-group -->
+
+		</div><!-- from-box -->
+	</div><!-- hero -->
+<script src="js/function.js"></script>
+</body>
+</html>
