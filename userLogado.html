@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title class="usuario">login - </title>
+    <link href="css/styleLogado.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h2 class="usuario"></h1>
+        </div><!-- logo -->
+    
+        <nav class="menu-desktop">
+            <ul class="menu-list">
+                <li><a id="home" href="#">Home</a></li>
+                <li><a id="perfil" href="#">Pefil</a></li>
+                <li><a id="info" href="#">info</a></li>
+            </ul><!-- menu-list -->
+        </nav><!-- menu-desktop -->
+    
+        <button onclick="exit_Login()" class="buton_exit_login">Exit</button>
+    </header><!-- header -->
+
+
+<div class="componente-home">
+    <section class="home">
+        <nav class="sub-menu">
+
+            <div class="container">
+
+                <div class="perfil-menu">
+                    <img class="box-img-home" id="display-image" src="">
+                    <h2 class="usuario"></h2>
+                </div>
+                
+            </div><!-- container -->
+
+        </nav><!-- sub-menu -->
+    </section><!-- home -->
+</div><!-- componente-home -->
+
+<div class="componete-perfil hidden">
+
+    <section class="perfil">
+        <div class="container">
+            <div class="box-perfil">
+    
+                <img class="box-img" id="display-image" src="imagens/user.png">
+                <h2 class="usuario"></h2>
+    
+                <label for='input-file'>
+                    upload image of perfil
+                </label>
+    
+                <input type="file" name="input file" id="input-file">
+    
+            </div><!-- box-perfil -->
+        </div><!-- container -->
+    </section><!-- perfil -->
+
+
+</div><!-- componet perfil -->
+
+    
+</body>
+<script>
+    const dados = JSON.parse(localStorage.getItem("userLogin"));
+
+    //add name user login -----------------------------
+    let title = document.querySelector('title.usuario');
+        title.innerHTML+= dados.name;
+    //--------------------------------------------------
+    let titleH2 = document.querySelectorAll('h2.usuario');
+        titleH2[0].innerHTML+= dados.name;
+        titleH2[1].innerHTML+= dados.name;
+    //--------------------------------------------------
+
+    //Get Token if == null redrect user index.html
+    if(localStorage.getItem('tokenID') == null){
+        alert('invalid token');
+        window.location.href = 'index.html';
+    }
+
+    //function exit Login User
+    function exit_Login(){
+        localStorage.removeItem('tokenID');
+        window.location.href = 'index.html';
+    }
+
+</script>
+<script src="js/function.js"></script>
+<script src="js/UpLoadFileImg.js"></script>
+<script src="js/functionMenuUser.js"></script>
+</html>

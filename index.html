@@ -7,36 +7,89 @@
 </head>
 <body>
 
+<!-- FORM_Login & FORM_Register ===================================== -->
+
 	<div class="hero">
 		<div class="form-box">
 			<div class="button-box">
 				<div id="btn"></div><!-- btn -->
-				<button type="button" class="toggle-btn btn1 color" onclick="login()"> log in </button>
-				<button type="button" class="toggle-btn btn2" onclick="register()"> Register </button>
+				<button type="button" class="toggle-btn Button_Login color" onclick="login()"> log in </button>
+				<button type="button" class="toggle-btn Button_Register" onclick="register()"> Register </button>
 			</div><!-- button-box -->
+
+<!-- LOGIN SOCIAL MEDIA ============================================ -->
+
 			<div class="social-icons">
-				<a href="https://facebook.com"><img src="imagens/facebook.png"></a>
-				<a href="https://www.instagram.com/"><img src="imagens/instagram.png"></a>
-				<a href="https://www.google.com"><img src="imagens/Google.png"></a>
+				<a href="#"><img src="imagens/facebook.png"></a>
+				<a href="#"><img src="imagens/instagram.png"></a>
+				<a href="#"><img src="imagens/Google.png"></a>
 			</div><!-- social-icons -->
 
+<!-- LOGIN ============================================ -->
+
 			<form id="login" class="input-group">
-				<input type="text" class="input-field" placeholder="User Name" required="text">
-				<input type="Password" class="input-field" placeholder="Password"required="password">
-				<input type="checkbox" class="chech-box"><span>Remember Password</span>
-				<button type="submit" class="submit-btn">Log in</button>
+
+				<input type="text" class="input-field login" placeholder="User Name" required="text">
+
+				<input type="Password" class="input-field password" placeholder="Password"required="password">
+
+				<input required type="checkbox" class="chech-box chech-box-login"><span>Remember Password</span>
+
+				<button type="submit" class="submit-btn logar-btn">Log in</button>
 			</form><!-- input-group -->
 
+<!-- REGISTER USER =========================================== -->
+
 			<form id="register" class="input-group">
-				<input type="text" class="input-field" placeholder="User id" required="text">
-				<input type="email" class="input-field" placeholder="E-mail" required="email">
-				<input type="Password" class="input-field" placeholder="Password" required="Password" >
-				<input type="checkbox" class="chech-box"><span>I agree to the terms & conditions</span>
-				<button type="submit" class="submit-btn">Register</button>
+
+				<input required type="text" class="input-field register-name" placeholder="User id" required="text">
+
+				<input type="email" class="input-field register-email" placeholder="E-mail" required="email">
+
+				<input required type="Password" class="input-field register-password" placeholder="Password" required="Password" >
+
+				<input required type="checkbox" class="chech-box chech-box-register"><span>I agree to the terms & conditions</span>
+
+				<button type="submit" class="submit-btn registrar-btn">Register</button>
+
 			</form><!-- input-group -->
+
+<!-- POPOP ERRO LOGIN ============================================ -->
 
 		</div><!-- from-box -->
 	</div><!-- hero -->
+
+<div class="popup">
+	<img src="imagens/alert-triangle 3.svg" alt="erro">
+	<h3>erro</h3>
+	<p>incorrect username or password
+		try again</p>
+	<button class="exit_popup_error">Ok</button>
+</div>
+
+<div class="popup-success">
+	<img src="imagens/circle check full 1.svg" alt="success">
+	<h3>success</h3>
+	<p>successfully registered please login</p>
+	<button class="exit_popup_success">log-in</button>
+</div>
+
+
+<!-- SCRIPT FUNCTIONS ============================================ -->
+<script>
+
+	function checkLocalStorange(){
+		//get dados local Storange
+		const getDadosLocalStorage = JSON.parse(localStorage.getItem("userLogin"))
+		console.log('dados Login:')
+		console.log(getDadosLocalStorage)
+	}
+	checkLocalStorange()
+
+
+</script>
 <script src="js/function.js"></script>
+<script src="js/functionRegister.js"></script>
+<script src="js/functionsLogin.js"></script>
 </body>
 </html>
