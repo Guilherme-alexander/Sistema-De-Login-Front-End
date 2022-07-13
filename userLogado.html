@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title class="usuario">login - </title>
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link href="css/styleLogado.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -16,30 +17,38 @@
         <nav class="menu-desktop">
             <ul class="menu-list">
                 <li><a id="home" href="#">Home</a></li>
-                <li><a id="perfil" href="#">Pefil</a></li>
-                <li><a id="info" href="#">info</a></li>
+                <li><a id="home" href="#">Perfil</a></li>
+                <li><a id="perfil" href="#">Edit Info</a></li>
             </ul><!-- menu-list -->
         </nav><!-- menu-desktop -->
     
         <button onclick="exit_Login()" class="buton_exit_login">Exit</button>
     </header><!-- header -->
 
-
 <div class="componente-home">
+
     <section class="home">
+
         <nav class="sub-menu">
-
             <div class="container">
-
                 <div class="perfil-menu">
-                    <img class="box-img-home" id="display-image" src="">
-                    <h2 class="usuario"></h2>
-                </div>
-                
-            </div><!-- container -->
 
+                    <div class="perfil-login">
+                        <img class="box-img-home" id="display-image" src="">
+                        <h2 class="usuario"></h2>
+                    </div><!-- perfil-login -->
+
+                    <form class="search-input">
+                        <input type="search" name="search" id="search">
+                        <input type="submit" value="search">
+                    </form><!-- search-input -->
+
+                </div><!-- perfil-menu -->
+            </div><!-- container -->
         </nav><!-- sub-menu -->
+
     </section><!-- home -->
+
 </div><!-- componente-home -->
 
 <div class="componete-perfil hidden">
@@ -48,11 +57,18 @@
         <div class="container">
             <div class="box-perfil">
     
-                <img class="box-img" id="display-image" src="imagens/user.png">
-                <h2 class="usuario"></h2>
+                <img onclick="window.loader();" class="box-img" id="display-image" src="imagens/user.png">
+
+                <div class="username-edition">
+                    <input type="text" placeholder="Rename" maxlength="10" minlength="3" class="rename"><i class="las la-check"></i>
+                </div><!-- username-edition -->
+
+                <div class="userpassword-edition">
+                    <input type="password" placeholder="Rename password" maxlength="12" minlength="8" class="passwordRename"><i class="las la-check"></i>
+                </div><!-- username-edition -->
     
                 <label for='input-file'>
-                    upload image of perfil
+                    new upload image of perfil
                 </label>
     
                 <input type="file" name="input file" id="input-file">
@@ -67,28 +83,68 @@
     
 </body>
 <script>
-    const dados = JSON.parse(localStorage.getItem("userLogin"));
 
-    //add name user login -----------------------------
+    //Up Load Dados ----------------------------------------------------------
+    let dadoName = JSON.parse(localStorage.getItem("userLoginName"));
+    let dadoEmail = JSON.parse(localStorage.getItem("userLoginEmail"));
+    let dadoPassword = JSON.parse(localStorage.getItem("userLoginPassword"));
+    //-------------------------------------------------------------------------
+
+    //Function Rename User ----------------------------------------------------
+    let rename = document.querySelector(".rename");
+    let buttonRename = document.querySelector(".username-edition .la-check");
+    
+        buttonRename.addEventListener('click',()=>{
+            UserOjectName = {
+                "name":rename.value
+            }
+
+        localStorage.setItem('userLoginName',JSON.stringify(UserOjectName));
+        console.log(UserOjectName);
+
+        window.unloadFile(500);
+    });
+    //--------------------------------------------------------------------------
+
+    //Function Rename Password -------------------------------------------------
+    let renamePassword = document.querySelector(".passwordRename");
+    let buttonRenamePassword = document.querySelector(".userpassword-edition .la-check");
+    
+    buttonRenamePassword.addEventListener('click',()=>{
+        UserOjectPassword = {
+            "password":renamePassword.value
+        }
+
+        localStorage.setItem('userLoginPassword',JSON.stringify(UserOjectPassword));
+        console.log(UserOjectPassword);
+
+        window.unloadFile(500);
+    });
+    //---------------------------------------------------------------------------
+
+    //add name user login -------------------------------------------------------
     let title = document.querySelector('title.usuario');
-        title.innerHTML+= dados.name;
-    //--------------------------------------------------
-    let titleH2 = document.querySelectorAll('h2.usuario');
-        titleH2[0].innerHTML+= dados.name;
-        titleH2[1].innerHTML+= dados.name;
-    //--------------------------------------------------
+        title.innerHTML+= dadoName.name;
+    //---------------------------------------------------------------------------
 
-    //Get Token if == null redrect user index.html
+    let titleH2 = document.querySelectorAll('h2.usuario');
+        titleH2[0].innerHTML+= dadoName.name;
+        titleH2[1].innerHTML+= dadoName.name;
+    //---------------------------------------------------------------------------
+
+    //Get Token if == null redrect user index.html ------------------------------
     if(localStorage.getItem('tokenID') == null){
         alert('invalid token');
         window.location.href = 'index.html';
     }
+    //---------------------------------------------------------------------------
 
-    //function exit Login User
+    //function exit Login User --------------------------------------------------
     function exit_Login(){
         localStorage.removeItem('tokenID');
         window.location.href = 'index.html';
     }
+    //---------------------------------------------------------------------------
 
 </script>
 <script src="js/function.js"></script>

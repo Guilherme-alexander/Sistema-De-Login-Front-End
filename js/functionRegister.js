@@ -19,19 +19,30 @@ function register_user(){
 
 //Object User login
 
-    let UserOject = {
-        "name":input_Name_User,
-        "email":input_Email_User,
+    let UserOjectName = {
+        "name":input_Name_User
+    }
+    let UserOjectEmail = {
+        "email":input_Email_User
+    }
+    let UserOjectPassword = {
         "password":input_Password_User
     }
+    
+//browser local storage => OBJECT - Name,Email,Password
+    localStorage.setItem("userLoginName",JSON.stringify(UserOjectName));
+    
+    localStorage.setItem("userLoginEmail",JSON.stringify(UserOjectEmail));
 
-//browser local storage => OBJECT - <Name,Email,Password>
-    localStorage.setItem("userLogin",JSON.stringify(UserOject));
+    localStorage.setItem("userLoginPassword",JSON.stringify(UserOjectPassword));
+    
+    localStorage.removeItem('recentImage');
 
 //function js/function.js
-    window.login();
+//    window.login();
 
     function activePopupRegisterSuccess(){
+
         let popupSuccess = document.querySelector('.popup-success');
                 popupSuccess.style.display = 'flex';
 

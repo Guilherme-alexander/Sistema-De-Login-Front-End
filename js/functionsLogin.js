@@ -1,4 +1,7 @@
-    let getDadosLocalStorage = JSON.parse(localStorage.getItem("userLogin"))
+    let getDadosLocalStorageName = JSON.parse(localStorage.getItem("userLoginName"))
+    let getDadosLocalStorageEmail = JSON.parse(localStorage.getItem("userLoginEmail"))
+    let getDadosLocalStoragePassword = JSON.parse(localStorage.getItem("userLoginPassword"))
+
     //console.log(getDadosLocalStorage)
 
     //Log-in Button
@@ -18,7 +21,7 @@
         let passUser = document.querySelector('.password').value;
 
         // validate login input
-        if(nameUser == getDadosLocalStorage.name && passUser == getDadosLocalStorage.password){
+        if(nameUser == getDadosLocalStorageName.name && passUser == getDadosLocalStoragePassword.password){
             //Redirect Log-in User
             window.open("userLogado.html","_self");
 

@@ -32,12 +32,11 @@ header{
     display:flex;
     justify-content:space-around;
     align-items: center;
-    border-bottom:1px solid #ccc;
     background-color:var(--cor2);
 }
 
 .logo{
-    padding:4px 16px;
+    padding:5px 15px;
     border-radius:8px;
     background-color:var(--cor1);
     cursor:pointer;
@@ -45,6 +44,7 @@ header{
 
 .logo .usuario{
     color:var(--white);
+    font-size:20px;
     text-transform: uppercase;
 }
 
@@ -60,6 +60,7 @@ ul li{
 ul li a{
     padding:8px 15px;
     text-decoration:none;
+    font-size:15px;
     color:var(--white);
     border-radius:8px;
     transition:0.8s;
@@ -75,7 +76,7 @@ ul li a:hover{
     background-color:var(--cor1);
 }
 
-button{
+button.buton_exit_login{
     width:100px;
 	height:35px;
 	border:none;
@@ -83,6 +84,7 @@ button{
 	font-size:15px;
 	color:var(--white);
 	background:var(--red);
+    cursor: pointer;
 }
 
 button:active{
@@ -106,34 +108,74 @@ section.home{
 
 .sub-menu{
     width:100%;
-    height:70px;
-    background-color:var(--cor1);
+    height:55px;
+    background-color:#06192c;
 }
 
 .perfil-menu{
+    display: flex;
+    justify-content:space-evenly;
+    align-items: center;
+}
+
+.perfil-login{
     width:100%;
-    height:70px;
+    height:55px;
     display: flex;
     align-items: center;
 }
-.perfil-menu img{
+.perfil-login img{
+    width:35px;
+    height:35px;
     margin-left:30px;
-    border:3px solid var(--white);
+    cursor:pointer;
+    border:2px solid var(--white);
 }   
-.perfil-menu h2{
+.perfil-login h2{
     margin-left:10px;
     font-weight:normal;
     font-style:italic;
-    font-size:17px;
+    font-size:14px;
     color:var(--white);
+    cursor:pointer;
 }
+
+.search-input{
+    margin-right:40px;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+}
+
+input[type="search"]{
+    padding:5px;
+    border:0;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+    outline:none;
+}
+
+input[type="submit"]{
+    padding:5px 15px;
+    border:0;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    background-color:var(--cor1);
+    color:var(--white);
+    cursor:pointer;
+}
+
+input[type="submit"]:active{
+    background-color:var(--cor2);
+}
+
 /* FIM Home */
 
 
 /* Perfil */
 section.perfil{
     width:100%;
-    height:400px;
+    height:600px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -149,8 +191,8 @@ section.perfil{
 }
 
 .box-img{
-    width:250px;
-    height:250px;
+    width:200px;
+    height:200px;
     background-repeat:no-repeat;
     background-position: center;
     background-size:100%;
@@ -158,13 +200,34 @@ section.perfil{
     border:3px solid #e7e8ea;
 }
 
-.box-perfil h2{
-    margin:15px;
-    font-weight:lighter;
+.username-edition,.userpassword-edition{
+    display:flex;
+    justify-content:space-around;
+    align-items: center;
+}
+
+.rename,.passwordRename{
+    width:135px;
+    height:26px;
+    margin:10px 8px;
+    padding-left:5px;
+    color:var(--black);
+    border:1px solid #ccc;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    outline:none;
+}
+.username-edition i,.userpassword-edition i{
+    padding:6px 8px;
+    color:var(--white);
+    border-radius:8px;
+    background-color:var(--cor1);
+    cursor:pointer;
 }
 
 label{
-    width:200px;
+    width:230px;
+    margin-top:30px;
     padding:8px 0;
 	border-radius:25px;
     text-align: center;
@@ -172,6 +235,7 @@ label{
     font-weight:bold;
 	color:var(--white);
 	background:var(--cor1);
+    cursor:pointer;
 }
 #input-file{
     display:none;
